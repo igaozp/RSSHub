@@ -22,6 +22,10 @@ pageClass: routes
 
 <Route author="LogicJake" example="/mit/graduateadmissions/category/beyond-the-lab" path="/mit/graduateadmissions/category/:name" :paramsDesc="['category name which can be found in url']"/>
 
+### MIT CSAIL
+
+<Route author="nczitzk" example="/mit/csail/news" path="/mit/csail/news"/>
+
 ## Polimi
 
 ### News
@@ -144,6 +148,18 @@ pageClass: routes
 
 </Route>
 
+## 北京交通大学
+
+### 研究生院
+
+<Route author="E1nzbern" example="/bjtu/gs/all" path="/bjtu/gs/:type" :paramsDesc="['文章类别']">
+
+| 所有文章 | 通知公告 | 新闻动态 | 招生宣传 | 培养 | 学位 | 招生 | 硕士招生 | 博士招生 | 招生简章 | 招生政策法规 | 研工部通知公告 | 研工部新闻动态 |
+| -------- | -------- | -------- | -------- | ---- | ---- | ---- | -------- | -------- | -------- | ------------ | -------------- | -------------- |
+| all      | noti     | news     | zsxc     | py   | xw   | zs   | sszs     | bszs     | zsjz     | zcfg         | ygbtzgg        | ygbnews        |
+
+</Route>
+
 ## 北京科技大学天津学院
 
 ### 北京科技大学天津学院
@@ -226,9 +242,21 @@ pageClass: routes
 
 <Route author="RicardoMing wzekin" example="/bupt/portal" path="/bupt/portal" />
 
+::: warning 注意
+
+由于需要登陆 `https://webapp.bupt.edu.cn/wap/login.html?redirect=http://` 后的 Cookie 值，所以只能自建，详情见部署页面的配置模块
+
+:::
+
 ### 校园新闻
 
 <Route author="wzekin" example="/bupt/news" path="/bupt/news" />
+
+::: warning 注意
+
+由于需要登陆 `https://webapp.bupt.edu.cn/wap/login.html?redirect=http://` 后的 Cookie 值，所以只能自建，详情见部署页面的配置模块
+
+:::
 
 ### BTBYR 趣味盒
 
@@ -400,6 +428,16 @@ xskb1 对应 <http://www.auto.uestc.edu.cn/index/xskb1.htm>
 
 <Route author="huyyi" example="/uestc/sice" path="/uestc/sice" />
 
+### 信息与软件工程学院
+
+<Route author="Yadomin" example="/uestc/is/" path="/uestc/is/:type?" :paramsDesc="['默认为 `latest`']" />
+
+| 最新   | 院办 | 组织 | 学生科 | 教务科 | 研管科 | 实验中心 | 企业技术服务中心 | 新工科中心 | 实习实训办公室 | 招聘 | 实习实训 |
+| ------ | ---- | ---- | ------ | ------ | ------ | -------- | ---------------- | ---------- | -------------- | ---- | -------- |
+| latest | yb   | zx   | xsk    | jwk    | ygk    | syzx     | qyjsfwzx         | xgkzx      | sxsxbgs        | zp   | sxsx     |
+
+注：可以使用 + 号来叠加，如 学生科 + 教务科 `/uestc/is/xsk+jwc`
+
 ## 东北大学
 
 ### 东北大学新闻网
@@ -462,13 +500,13 @@ xskb1 对应 <http://www.auto.uestc.edu.cn/index/xskb1.htm>
 
 ## 福州大学
 
-### 教务处教学通知
+### 教务处通知
 
-<Route author="Lao-Liu233" example="/fzu/jxtz" path="/fzu/jxtz"/>
+<Route author="Lao-Liu233" example="/fzu/jxtz" path="/fzu/:type" :paramsDesc="['分类见下表']"/>
 
-### 教务处专家讲座
-
-<Route author="Lao-Liu233" example="/fzu/zjjz" path="/fzu/zjjz"/>
+| 教学通知 | 专家讲座 |
+| -------- | -------- |
+| jxtz     | zjjz     |
 
 ## 广东工业大学
 
@@ -487,6 +525,16 @@ xskb1 对应 <http://www.auto.uestc.edu.cn/index/xskb1.htm>
 ## 广州大学研招网通知公告
 
 <Route author="sushengmao" example="/gzyjs" path="/gzyjs" />
+
+## 广州航海学院
+
+## 广州航海学院教务处通知公告
+
+<Route author="skyedai910" example="/gzmtu/jwc" path="/gzmtu/jwc" />
+
+## 广州航海学院图书馆通知公告
+
+<Route author="skyedai910" example="/gzmtu/tsg" path="/gzmtu/tsg" />
 
 ## 桂林电子科技大学
 
@@ -884,6 +932,16 @@ jsjxy.hbut.edu.cn 证书链不全，自建 RSSHub 可设置环境变量 NODE_TLS
 | 通知公告 | 新闻动态 |
 | -------- | -------- |
 | tzgg     | xwdt     |
+
+</Route>
+
+### 教务处
+
+<Route author="nczitzk" example="/jlbtc/jwc" path="/jlbtc/jwc/:id?" :paramDesc="['分类，见下表，默认为通知公告']">
+
+| 教务新闻 | 通知公告 | 教务工作 | 教师发展工作 | 学籍考务工作 | 教学基本建设 |
+| -------- | -------- | -------- | ------------ | ------------ | ------------ |
+| 1888     | 1887     | 1947     | 1949         | 2011         | 1948         |
 
 </Route>
 
@@ -1462,9 +1520,9 @@ type 列表：
 
 <Route author="SeanChao" example="/sjtu/tongqu/lecture" path="/sjtu/tongqu/:type?" :paramsDesc="['类型，默认为全部']">
 
-| 全部 | 最新   | 招新        | 讲座    | 户外      | 招聘 | 游学       | 比赛         | 公益           | 广告 | 其他   |
-| ---- | ------ | ----------- | ------- | --------- | ---- | ---------- | ------------ | -------------- | ---- | ------ |
-| all  | newest | recruitment | lecture | outdoords | jobs | studyTours | competitions | publicWarefare | ads  | others |
+| 全部 | 最新   | 招新        | 讲座    | 户外      | 招聘 | 游学       | 比赛         | 公益           | 主题党日 | 学生事务       | 广告 | 其他   |
+| ---- | ------ | ----------- | ------- | --------- | ---- | ---------- | ------------ | -------------- | -------- | -------------- | ---- | ------ |
+| all  | newest | recruitment | lecture | outdoords | jobs | studyTours | competitions | publicWarefare | partyDay | studentAffairs | ads  | others |
 
 </Route>
 

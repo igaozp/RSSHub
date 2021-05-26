@@ -16,6 +16,12 @@ Full transcript support for better user experience.
 
 <RouteEn author="Ji4n1ng" example="/99percentinvisible/transcript" path="/99percentinvisible/transcript"/>
 
+## Bandcamp
+
+### Tag
+
+<RouteEn author="nczitzk" example="/bandcamp/tag/united-kingdom" path="/bandcamp/tag/:tag?" :paramsDesc="['Tag, can be found in URL']"/>
+
 ## EZTV
 
 ::: tip
@@ -59,6 +65,18 @@ Official RSS: https://eztv.io/ezrss.xml
 ### Bestreviews
 
 <RouteEn author="DCJaous" example="/javlibrary/bestreviews" path="/javlibrary/bestreviews" radar="1" rssbud="1"/>
+
+## Melon
+
+### Chart
+
+<RouteEn author="nczitzk" example="/melon/chart" path="/melon/chart/:category?" :paramsDesc="['Category, see below, 24H by default']">
+
+| 24H | 일간 | 주간 | 월간 |
+| - | - | - | - |
+| | day | week | month |
+
+</RouteEn>
 
 ## Nyaa
 
@@ -115,6 +133,12 @@ Refer to [Pornhub F.A.Qs](https://help.pornhub.com/hc/en-us/articles/36004432703
 ### Tracks
 
 <RouteEn author="fallenhh" example="/soundcloud/tracks/angeart" path="/soundcloud/tracks/:user" :paramsDesc="['User name']" />
+
+## Trakt.tv
+
+### User Collection
+
+<Route author="hoilc" example="/trakt/collection/tomyangsh/movies" path="/trakt/collection/:username/:type?" :paramsDesc="['Username','Collection type, can be `movies`,`shows`,`episodes`,`all`, default to `all`']" radar="1" rssbud="1" />
 
 ## YouTube
 

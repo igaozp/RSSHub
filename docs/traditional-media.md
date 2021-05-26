@@ -28,7 +28,8 @@ pageClass: routes
 
 ### 话题
 
-<Route author="zoenglinghou" example="/apnews/topics/apf-topnews" path="/apnews/topics/:topic" :paramsDesc="['话题名称，可在 URL 中找到，例如 AP Top News [https://apnews.com/apf-topnews](https://apnews.com/apf-topnews) 的话题为 `apf-topnews`']" radar="1" rssbud="1"/>
+<Route author="mjysci" example="/apnews/topics2/ap-top-news" path="/apnews/topics2/:topic" :paramsDesc="['话题名称，可在 URL 中找到，例如 AP Top News [https://apnews.com/hub/ap-top-news](https://apnews.com/hub/ap-top-news) 的话题为 `ap-top-news`']"  anticrawler="1"/>
+采用了`puppeteer`规避`Project Shield`，无全文抓取，建议自建。  
 
 ## BBC
 
@@ -384,6 +385,10 @@ Category 列表：
 
 </Route>
 
+### 财新一线
+
+<Route author="boypt"  example="/caixin/yxnews" path="/caixin/yxnews"/>
+
 ## 第一财经
 
 ### 直播区
@@ -655,6 +660,24 @@ category 对应的关键词有
 
 <Route author="xyqfer" example="/nytimes/morning_post" path="/nytimes/morning_post"/>
 
+### 畅销书排行榜
+
+<Route author="melvinto" example="/nytimes/book/combined-print-and-e-book-nonfiction" path="/nytimes/book/:category?"/>
+
+| Category                             | 中文              |
+| ------------------------------------ | ----------------- |
+| combined-print-and-e-book-nonfiction | 非虚构类 - 综合   |
+| hardcover-nonfiction                 | 非虚构类 - 精装本 |
+| paperback-nonfiction                 | 非虚构类 - 平装本 |
+| advice-how-to-and-miscellaneous      | 工具类            |
+| combined-print-and-e-book-fiction    | 虚构类 - 综合     |
+| hardcover-fiction                    | 虚构类 - 精装本   |
+| trade-fiction-paperback              | 虚构类 - 平装本   |
+| childrens-middle-grade-hardcover     | 儿童 - 中年级     |
+| picture-books                        | 儿童 - 绘本       |
+| series-books                         | 儿童 - 系列图书   |
+| young-adult-hardcover                | 青少年            |
+
 ## 澎湃新闻
 
 ### 首页头条
@@ -714,6 +737,10 @@ category 对应的关键词有
 ### 习近平系列重要讲话
 
 <Route author="LogicJake"  example="/people/xjpjh" path="/people/xjpjh/:keyword?/:year?" :paramsDesc="['关键词，默认不填','年份，默认 all']"/>
+
+### 中国共产党新闻网 24 小时滚动新闻
+
+<Route author="nczitzk" example="/people/cpc/24h" path="/people/cpc/24h"/>
 
 ## 人民日报社 国际金融报
 

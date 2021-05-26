@@ -161,6 +161,12 @@ pageClass: routes
 
 <Route author="I2IMk" example="/avgle/search/橋本ありな" path="/avgle/search/:keyword/:order?/:time?/:top?" :paramsDesc="['搜索的关键词', '视频次序, `bw` 观看中 / `mr` 最新 / `mv` 最多观看 / `tr` 最高评分 / `tf` 最多收藏 / `lg` 最长, 默认 `mr`', '视频的添加时间, `a` 所有 / `t` 今天 / `d` 本周 / `m` 本月, 默认 `a`', '按次序获取的视频数, 不大于 `250`, 默认 `30`']"/>
 
+## Bandcamp
+
+### Tag
+
+<Route author="nczitzk" example="/bandcamp/tag/united-kingdom" path="/bandcamp/tag/:tag?" :paramsDesc="['标签，可在 URL 中找到']"/>
+
 ## bilibili
 
 见 [#bilibili](/social-media.html#bilibili)
@@ -210,6 +216,22 @@ pageClass: routes
 网站提供了全部种子的 RSS: <https://eztv.io/ezrss.xml>
 
 :::
+
+## FIX 字幕侠
+
+### 分类
+
+<Route author="nczitzk" example="/zimuxia" path="/zimuxia/:category?" :paramsDesc="['分类，见下表，默认为 ALL']" >
+
+| ALL | FIX 德语社 | 欧美剧集 | 欧美电影 | 综艺 & 纪录 | FIX 日语社 | FIX 韩语社 | FIX 法语社 |
+| --- | ---------- | -------- | -------- | ----------- | ---------- | ---------- | ---------- |
+|     | 昆仑德语社 | 欧美剧集 | 欧美电影 | 综艺纪录    | fix 日语社 | fix 韩语社 | fix 法语社 |
+
+</Route>
+
+### 剧集
+
+<Route author="nczitzk" example="/zimuxia/portfolio/我们这一天" path="/zimuxia/portfolio/:id" :paramsDesc="['剧集名，可在剧集页 URL 中找到']" />
 
 ### Lookup Torrents by IMDB ID
 
@@ -421,6 +443,18 @@ pageClass: routes
 
 <Route author="hoilc" example="/lastfm/top/spain" path="/lastfm/top/:country?" :paramsDesc="['国家或地区, 需要符合`ISO 3166-1`的英文全称, 可参考`https://zh.wikipedia.org/wiki/ISO_3166-1二位字母代码#正式分配代码`']" radar="1" rssbud="1"/>
 
+## Melon
+
+### Chart
+
+<Route author="nczitzk" example="/melon/chart" path="/melon/chart/:category?" :paramsDesc="['分类，见下表，默认为24H']">
+
+| 24H | 일간 | 주간 | 월간  |
+| --- | ---- | ---- | ----- |
+|     | day  | week | month |
+
+</Route>
+
 ## Mp4Ba
 
 ### 影视分类
@@ -474,6 +508,14 @@ pageClass: routes
 | 最近更新 | 剧集推荐 | 电影推荐 | 纪录片推荐 | 动画推荐 | 真人秀推荐 |
 | -------- | -------- | -------- | ---------- | -------- | ---------- |
 | 1        | 2        | 3        | 4          | 5        | 6          |
+
+</Route>
+
+### 指定剧集
+
+<Route author="nczitzk" example="/newzmz/view/qEzRyY3v" path="/newzmz/view/:id?" :paramsDesc="['剧集 id，可在剧集下载页 URL 中找到']">
+
+如：雪国列车（剧版）的下载页 URL 为 `https://ysfx.tv/view/qEzRyY3v.html`，即剧集 id 为 `qEzRyY3v`。
 
 </Route>
 
@@ -615,6 +657,12 @@ pageClass: routes
 ## subHD.tv - 最新字幕
 
 <Route author="laampui" example="/subhd/newest" path="/subhd/newest" />
+## Trakt.tv
+
+### 用户收藏
+
+<Route author="hoilc" example="/trakt/collection/tomyangsh/movies" path="/trakt/collection/:username/:type?" :paramsDesc="['用户名','收藏类型，可选`movies`,`shows`,`episodes`,`all`，默认为`all`']" radar="1" rssbud="1" />
+
 ## Yahoo! テレビ
 
 ### 番組検索
@@ -750,6 +798,28 @@ pageClass: routes
 ### 今日精选
 
 <Route author="Wenmoux" example="/changku" path="/changku"/>
+
+### 分类
+
+<Route author="Wenmoux" example="/changku/cate/12" path="/changku/cate/:cateid" :paramsDesc="['分类id']">
+
+| 创意 | 励志 | 搞笑 | 广告 | 汽车 | 旅行 |
+| ---- | ---- | ---- | ---- | ---- | ---- |
+| 6    | 7    | 8    | 13   | 92   | 11   |
+
+| 爱情 | 剧情 | 运动 | 动画 | 音乐 | 科幻 |
+| ---- | ---- | ---- | ---- | ---- | ---- |
+| 12   | 17   | 10   | 16   | 18   | 23   |
+
+| 预告 | 记录 | 混剪 | 游戏 | 时尚 | 实验 |
+| ---- | ---- | ---- | ---- | ---- | ---- |
+| 43   | 24   | 44   | 104  | 88   | 45   |
+
+| 生活 |
+| ---- |
+| 78   |
+
+</Route>
 
 ## 低端影视
 
@@ -899,7 +969,7 @@ pageClass: routes
 
 ### 剧集类型
 
-<Route author="nczitzk" example="/shinybbs/62" path="/shinybbs/:id?" :paramsDesc="['类型 id，见下表']">
+<Route author="nczitzk" example="/shinybbs/page/62" path="/shinybbs/page/:id?" :paramsDesc="['类型 id，见下表']">
 
 | 英美剧 | 日韩剧 | 小语种 |
 | ------ | ------ | ------ |
@@ -920,6 +990,22 @@ pageClass: routes
 ### 播放列表
 
 <Route author="Andiedie" example="/tencentvideo/playlist/jx7g4sm320sqm7i" path="/tencentvideo/playlist/:id" :paramsDesc="['播放列表 ID，可以在 URL 中找到']" radar="1" />
+
+## 弯弯字幕组
+
+### 分类
+
+<Route author="nczitzk" example="/wanwansub/139" path="/wanwansub/:id?" :paramsDesc="['分类 id，见下表，默认为 ALL']" >
+
+| ALL | 英语小分队 | 日语小分队 | 韩语小分队 | 葡语小分队 | 西语小分队 | 法语小分队 | 意语小分队 | 德语小分队 | 泰语小分队 | 其他语种 |
+| --- | ---------- | ---------- | ---------- | ---------- | ---------- | ---------- | ---------- | ---------- | ---------- | -------- |
+| 139 | 110        | 111        | 112        | 113        | 114        | 115        | 116        | 153        | 117        | 154      |
+
+</Route>
+
+### 剧集
+
+<Route author="nczitzk" example="/wanwansub/info/393" path="/wanwansub/info/:id" :paramsDesc="['剧集 id，可在剧集页 URL 中找到']" />
 
 ## 网易云音乐
 
