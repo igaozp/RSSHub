@@ -1752,6 +1752,18 @@ others = 热点新闻 + 滚动新闻
 
 <Route author="nczitzk" example="/mathunion/fields-medal" path="/mathunion/fields-medal"/>
 
+## 国家高端智库 / 综合开发研究院
+
+### 栏目
+
+<Route author="nczitzk" example="/cdi" path="/cdi/:id?" :paramsDesc="['分类，见下表，默认为综研国策']">
+
+| 樊纲观点 | 综研国策 | 综研观察 | 综研专访 | 综研视点 | 银湖新能源 |
+| -------- | -------- | -------- | -------- | -------- | ---------- |
+| 102      | 152      | 150      | 153      | 154      | 151        |
+
+</Route>
+
 ## 果壳网
 
 ### 科学人
@@ -2551,6 +2563,22 @@ column 为 third 时可选的 category:
 
 </Route>
 
+## 全国港澳研究会
+
+### 分类
+
+<Route author="nczitzk" example="/cahkms" path="/cahkms/:category?" :paramsDesc="['分类，见下表，默认为重要新闻']">
+
+| 关于我们 | 港澳新闻 | 重要新闻 | 顾问点评、会员观点 | 专题汇总 |
+| -------- | -------- | -------- | ------------------ | -------- |
+| 01       | 02       | 03       | 04                 | 05       |
+
+| 港澳时评 | 图片新闻 | 视频中心 | 港澳研究 | 最新书讯 | 研究资讯 |
+| -------- | -------- | -------- | -------- | -------- | -------- |
+| 06       | 07       | 08       | 09       | 10       | 11       |
+
+</Route>
+
 ## 全民健康网
 
 <Route author="nczitzk" example="/qm120/news" path="/qm120/news/:category?" :paramsDesc="['分类，见下表，默认为健康焦点']">
@@ -3157,6 +3185,56 @@ column 为 third 时可选的 category:
 
 <Route author="nczitzk" example="/watchout" path="/watchout"/>
 
+## 乌有之乡
+
+### 栏目
+
+<Route author="nczitzk" example="/wyzxwk/article/shushe" path="/wyzxwk/article/:id?" :paramsDesc="['栏目 id，可在栏目页 URL 中找到，默认为时代观察']">
+
+时政
+
+| 时代观察 | 舆论战争 |
+| -------- | -------- |
+| shidai   | yulun    |
+
+经济
+
+| 经济视点 | 社会民生 | 三农关注 | 产业研究 |
+| -------- | -------- | -------- | -------- |
+| jingji   | shehui   | sannong  | chanye   |
+
+国际
+
+| 国际纵横 | 国防外交 |
+| -------- | -------- |
+| guoji    | guofang  |
+
+思潮
+
+| 理想之旅 | 思潮碰撞 | 文艺新生 | 读书交流 |
+| -------- | -------- | -------- | -------- |
+| lixiang  | sichao   | wenyi    | shushe   |
+
+历史
+
+| 历史视野 | 中华文化 | 中华医药 | 共产党人 |
+| -------- | -------- | -------- | -------- |
+| lishi    | zhonghua | zhongyi  | cpers    |
+
+争鸣
+
+| 风华正茂 | 工农之声 | 网友杂谈 | 网友时评 |
+| -------- | -------- | -------- | -------- |
+| qingnian | gongnong | zatan    | shiping  |
+
+活动
+
+| 乌有公告 | 红色旅游 | 乌有讲堂  | 书画欣赏 |
+| -------- | -------- | --------- | -------- |
+| gonggao  | lvyou    | jiangtang | shuhua   |
+
+</Route>
+
 ## 无产者评论
 
 ### 分类
@@ -3526,6 +3604,41 @@ column 为 third 时可选的 category:
 | 全部 | 經濟 | 社會 | 生活 | 政治 | 國際 | 台灣 | 人物 | 中國 |
 | ---- | ---- | ---- | ---- | ---- | ---- | ---- | ---- | ---- |
 |      | 13   | 15   | 14   | 12   | 16   | 20   | 21   | 19   |
+
+</Route>
+
+## 珠海网
+
+### 栏目
+
+<Route author="nczitzk" example="/hizu" path="/hizu/:column?" :paramsDesc="['栏目，见下表，默认为热点']">
+
+| 分类     | 编号                     |
+| -------- | ------------------------ |
+| 热点     | 5dd92265e4b0bf88dd8c1175 |
+| 订阅     | 5dd921a7e4b0bf88dd8c116f |
+| 学党史   | 604f1cbbe4b0cf5c2234d470 |
+| 政经     | 5dd92242e4b0bf88dd8c1174 |
+| 合作区   | 61259fd6e4b0d294f7f9786d |
+| 名记名播 | 61dfe511e4b0248b60d1c568 |
+| 大湾区   | 5dd9222ce4b0bf88dd8c1173 |
+| 网评     | 617805e4e4b037abacfd4820 |
+| TV 新闻  | 5dd9220de4b0bf88dd8c1172 |
+| 音频     | 5e6edd50e4b02ebde0ab061e |
+| 澳门     | 600e8ad4e4b02c3a6af6aaa8 |
+| 政务     | 600f760fe4b0e33cf6f8e68e |
+| 教育     | 5ff7c0fde4b0e2f210d05e20 |
+| 深圳     | 5fc88615e4b0e3055e693e0a |
+| 中山     | 600e8a93e4b02c3a6af6aa80 |
+| 民生     | 5dd921ece4b0bf88dd8c1170 |
+| 社区     | 61148184e4b08d3215364396 |
+| 专题     | 5dd9215fe4b0bf88dd8c116b |
+| 战疫     | 5e2e5107e4b0c14b5d0e3d04 |
+| 横琴     | 5f88eaf2e4b0a27cd404e09e |
+| 香洲     | 5f86a3f5e4b09d75f99dde7d |
+| 金湾     | 5e8c42b4e4b0347c7e5836e0 |
+| 斗门     | 5ee70534e4b07b8a779a1ad6 |
+| 高新     | 607d37ade4b05c59ac2f3d40 |
 
 </Route>
 
