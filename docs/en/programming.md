@@ -305,6 +305,14 @@ Subscribe to the updates (threads and submission) from a paritcular Hacker News 
 
 <RouteEn author="NathanDai" example="/leetcode/submission/us/nathandai" path="/leetcode/submission/:country/:user" :paramsDesc="['country, Chines(cn) and US(us)', 'Username, available at the URL of the LeetCode user homepage']"/>
 
+### Daily Question
+
+<RouteEn author="NavePnow" example="/leetcode/dailyquestion/en" path="/leetcode/dailyquestion/:lang" :paramsDesc="['site, Chines(cn) and Engligh(en)']"/>
+
+### Daily Question Solution
+
+<RouteEn author="woaidouya123" example="/leetcode/dailyquestion/solution/en" path="/leetcode/dailyquestion/solution/:lang" :paramsDesc="['site, Chines(cn) and Engligh(en)']"/>
+
 ## Linux Patchwork
 
 ### Patch Comments
@@ -332,6 +340,17 @@ Subscribe to the updates (threads and submission) from a paritcular Hacker News 
 | Slackware        | `Slackware`        |
 | SUSE             | `SUSE`             |
 | Ubuntu           | `Ubuntu`           |
+
+</RouteEn>
+
+## MySQL
+
+### Release Notes
+
+<RouteEn author="nczitzk" example="/mysql/release/8.0" path="/mysql/release/:version?" :paramsDesc="['Version, see below, 8.0 by default']">
+
+| 8.0 | 5.7 | 5.6 |
+| --- | --- | --- |
 
 </RouteEn>
 

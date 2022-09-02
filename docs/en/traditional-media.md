@@ -60,7 +60,7 @@ The following are some of the supported Channel and Topic ids.
 
 ### Topics
 
-<RouteEn author="zoenglinghou mjysci" example="/apnews/topics/apf-topnews" path="/apnews/topics/:topic" :paramsDesc="['Topic name，can be found in URL. For example: the topic name of AP Top News [https://apnews.com/apf-topnews](https://apnews.com/apf-topnews) is `apf-topnews`']" radar="1" rssbud="1" anticrawler="1" puppeteer="1"/>
+<RouteEn author="zoenglinghou mjysci TonyRL" example="/apnews/topics/apf-topnews" path="/apnews/topics/:topic?" :paramsDesc="['Topic name，can be found in URL. For example: the topic name of AP Top News [https://apnews.com/apf-topnews](https://apnews.com/apf-topnews) is `apf-topnews`, `trending-news` by default']" radar="1" rssbud="1" />
 
 ## BBC
 
@@ -231,6 +231,24 @@ Only `s00017` is in English.
 
 <RouteEn author="Andiedie" example="/nhk/news_web_easy" path="/nhk/news_web_easy"/>
 
+### WORLD-JAPAN - Top Stories
+
+<RouteEn author="TonyRL" example="/nhk/news/en" path="/nhk/news/:lang?" :paramsDesc="['Language, see below, `en` by default']" radar="1" rssbud="1">
+
+| العربية | বাংলা | မြန်မာဘာသာစကား | 中文（简体） | 中文（繁體） | English | Français |
+| ------- | ----- | -------------- | ------ | ------ | ------- | -------- |
+| ar      | bn    | my             | zh     | zt     | en      | fr       |
+
+| हिन्दी | Bahasa Indonesia | 코리언 | فارسی | Português | Русский | Español |
+| ------  | ---------------- | --- | ----- | --------- | ------- | ------- |
+| hi     | id               | ko  | fa    | pt        | ru      | es      |
+
+| Kiswahili | ภาษาไทย | Türkçe | Українська | اردو | Tiếng Việt |
+| --------- | | ------- | ------ | ---------- | ---- | ---------- |
+| sw        | th      | tr     | uk         | ur   | vi         |
+
+</RouteEn>
+
 ## Nikkei Asia
 
 ### Latest News
@@ -249,7 +267,7 @@ Only `s00017` is in English.
 
 <RouteEn author="zphw" example="/rfa/english" path="/rfa/:language?/:channel?/:subChannel?" :paramsDesc="['language, English by default', 'channel', 'subchannel, where applicable']" />
 
-Delivers a better experience by supporting parameter specification. 
+Delivers a better experience by supporting parameter specification.
 
 Parameters can be obtained from the official website, for instance:
 
@@ -307,7 +325,7 @@ More could be found in the URL of the category/topic page.
 
 ### Inverstigates
 
-<RouteEn author="LyleLee" example="/reuters/inverstigates" path="/reuters/inverstigates" />
+<RouteEn author="LyleLee" example="/reuters/investigates" path="/reuters/investigates" />
 
 ## RTHK
 
@@ -444,21 +462,31 @@ Language
 
 </RouteEn>
 
+## Taiwan News
+
+### Hot News
+
+<RouteEn author="TonyRL" example="/taiwannews/hot" path="/taiwannews/hot/:lang?" :paramsDesc="['Language, `en` or `zh`, `en` by default']" radar="1" rssbud="1"/>
+
 ## The Economist
 
 ### Category
 
-<RouteEn author="ImSingee" example="/the-economist/latest" path="/the-economist/:endpoint" :paramsDesc="['Category name, can be found on the [official page](https://www.economist.com/rss). For example, https://www.economist.com/china/rss.xml to china']"/>
+<RouteEn author="ImSingee" example="/economist/latest" path="/economist/:endpoint" :paramsDesc="['Category name, can be found on the [official page](https://www.economist.com/rss). For example, https://www.economist.com/china/rss.xml to china']" radar="1" rssbud="1"/>
+
+### Espresso
+
+<RouteEn author="TonyRL" example="/economist/espresso" path="/economist/espresso" radar="1" rssbud="1"/>
 
 ### GRE Vocabulary
 
-<RouteEn author="xyqfer" example="/the-economist/gre-vocabulary" path="/the-economist/gre-vocabulary" />
+<RouteEn author="xyqfer" example="/economist/gre-vocabulary" path="/economist/gre-vocabulary" />
 
 ### Download
 
-<RouteEn author="nczitzk" example="/the-economist/download" path="/the-economist/download" >
+<RouteEn author="nczitzk" example="/economist/download" path="/economist/download" >
 
-The download site: http://www.cgx02.xyz/index.php?dir=/te
+The download site: <http://www.cgx02.xyz/index.php?dir=/te>
 
 </RouteEn>
 
@@ -500,22 +528,21 @@ Provides all of the articles by the specified New York Times author.
 
 ### Best Seller Books
 
-
 <RouteEn author="melvinto" example="/nytimes/book/combined-print-and-e-book-nonfiction" path="/nytimes/book/:category?"/>
 
-| Category | 
-| -------- | 
+| Category |
+| -------- |
 | combined-print-and-e-book-nonfiction |
-| hardcover-nonfiction| 
-| paperback-nonfiction| 
-| advice-how-to-and-miscellaneous| 
+| hardcover-nonfiction|
+| paperback-nonfiction|
+| advice-how-to-and-miscellaneous|
 | combined-print-and-e-book-fiction|
 | hardcover-fiction|
-| trade-fiction-paperback| 
-| childrens-middle-grade-hardcover| 
+| trade-fiction-paperback|
+| childrens-middle-grade-hardcover|
 | picture-books|
 | series-books|
-| young-adult-hardcover| 
+| young-adult-hardcover|
 
 ## The Wall Street Journal (WSJ)
 
@@ -524,6 +551,18 @@ Provides all of the articles by the specified New York Times author.
 <RouteEn author="oppilate" example="/wsj/en-us/opinion" path="/wsj/:lang/:category?" :paramsDesc="['Language, `en-us`, `zh-cn`, `zh-tw` are supported', 'Category, only supported in `en-us`. Supports `opinion`, `world_news`, `us_bussiness`, `market_news`, `technology`, `lifestyle`.']">
 
 Provide full article RSS for WSJ topics.
+
+</RouteEn>
+
+## Voice of Mongolia
+
+### News
+
+<RouteEn author="zphw" example="/vom/featured" path="/vom/featured/:lang?" :paramsDesc="['Language, see the table below, `mn` by default']">
+
+| English | 日本語 | Монгол | Русский | 简体中文 |
+| ------- | --- | ------ | ------- | ---- |
+| en      | ja  | mn     | ru      | zh   |
 
 </RouteEn>
 
@@ -555,7 +594,7 @@ Provides all of the articles by the specified Yahoo! author.
 
 </RouteEn>
 
-## Yomiuri Shimbun 読売新聞 
+## Yomiuri Shimbun 読売新聞
 
 ### News
 
@@ -568,9 +607,3 @@ Free articles only.
 | 　news 　 | national | politics | economy | sports | world | science | election | culture | igoshougi | life | local | editorial | koushitsu |
 
 </RouteEn>
-
-## 公視新聞網
-
-### Daily News
-
-<RouteEn author="nczitzk" example="/pts/dailynews" path="/pts/dailynews"/>
