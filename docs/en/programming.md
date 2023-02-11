@@ -122,10 +122,11 @@ Category
 
 GitHub provides some official RSS feeds:
 
--   Repo releases: https://github.com/:owner/:repo/releases.atom
--   Repo commits: https://github.com/:owner/:repo/commits.atom
--   User activities: https://github.com/:user.atom
--   Private feed: https://github.com/:user.private.atom?token=:secret (You can find **Subscribe to your news feed** in [dashboard](https://github.com) page after login)
+-   Repo releases: `https://github.com/:owner/:repo/releases.atom`
+-   Repo commits: `https://github.com/:owner/:repo/commits.atom`
+-   User activities: `https://github.com/:user.atom`
+-   Private feed: `https://github.com/:user.private.atom?token=:secret` (You can find **Subscribe to your news feed** in [dashboard](https://github.com) page after login)
+-   Wiki history: `https://github.com/:owner/:repo/wiki.atom`
 
 :::
 
@@ -211,7 +212,11 @@ For instance, the `/github/topics/framework/l=php&o=desc&s=stars` route will gen
 
 ### Issue / Pull Request comments
 
-<RouteEn author="TonyRL" example="/github/comments/DIYgod/RSSHub/8116" path="/github/comments/:user/:repo/:number" :paramsDesc="['User / Org name', 'Repo name', 'Issue or pull number']"/>
+<RouteEn author="TonyRL" example="/github/comments/DIYgod/RSSHub/8116" path="/github/comments/:user/:repo/:number" :paramsDesc="['User / Org name', 'Repo name', 'Issue or pull number']" radar="1" rssbud="1"/>
+
+### Wiki History
+
+<RouteEn author="TonyRL" example="/github/wiki/flutter/flutter/Roadmap" path="/github/wiki/:user/:repo/:page?" :paramsDesc="['User / Org name', 'Repo name', 'Page slug, can be found in URL, empty means Home']" radar="1" rssbud="1"/>
 
 ## GitLab
 
@@ -273,11 +278,23 @@ Subscribe to the updates (threads and submission) from a paritcular Hacker News 
 
 <RouteEn author="cf020031308 nczitzk xie-dongping" example="/hackernews/threads/comments_list/dang" path="/hackernews/:section?/:type?/:user?" :paramsDesc="['Section, see above, `index` by default', 'Link, see above, `sources` by default', 'User, only valid for section `threads` and `submitted`']" />
 
+## HackMD
+
+### Profile
+
+<RouteEn author="Yukaii kaiix" example="/hackmd/profile/hackmd" path="/hackmd/profile/:path" :paramsDesc="['userpath or teampath']" radar="1"/>
+
 ## Hex-Rays
 
 ### Hex-Rays News
 
 <RouteEn author="hellodword" example="/hex-rays/news" path="/hex-rays/news" />
+
+## Issue Hunt
+
+### Project Funded
+
+<RouteEn author="running-grass" radar="1" example="/issuehunt/funded/DIYgod/RSSHub" path="/issuehunt/funded/:username/:repo" :paramsDesc="['Github user/org','Repository name']" />
 
 ## Kaggle
 
