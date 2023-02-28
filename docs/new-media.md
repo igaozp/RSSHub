@@ -291,6 +291,44 @@ pageClass: routes
 
 <Route author="nczitzk" example="/dayone/blog" path="/dayone/blog"/>
 
+## DCFever
+
+### 新聞中心
+
+<Route author="TonyRL" example="/dcfever/news" path="/dcfever/news/:type?" :paramsDesc="['分類，預設為所有新聞']" radar="1">
+
+| 所有新聞 | 攝影器材   | 手機通訊   | 汽車熱話 | 攝影文化        | 影片攝錄        | 測試報告    | 生活科技   | 攝影技巧      |
+| ---- | ------ | ------ | ---- | ----------- | ----------- | ------- | ------ | --------- |
+|      | camera | mobile | auto | photography | videography | reviews | gadget | technique |
+
+</Route>
+
+### 測試報告
+
+<Route author="TonyRL" example="/dcfever/reviews/cameras" path="/dcfever/reviews/:type?" :paramsDesc="['分類，預設為 `cameras`']" radar="1">
+
+| 相機及鏡頭   | 手機平板   | 試車報告 |
+| ------- | ------ | ---- |
+| cameras | phones | cars |
+
+</Route>
+
+### 二手市集
+
+<Route author="TonyRL" example="/dcfever/trading/1" path="/dcfever/trading/:id" :paramsDesc="['分類 ID，見下表']" radar="1">
+
+[所有物品分類](https://www.dcfever.com/trading/index.php#all_cats)
+
+| 攝影產品 | 電腦 | 手機通訊 | 影音產品 | 遊戲機、模型 | 電器傢俱 | 潮流服飾 | 手錶 | 單車及運動 | 其它 |
+| ---- | -- | ---- | ---- | ------ | ---- | ---- | -- | ----- | -- |
+| 1    | 2  | 3    | 44   | 43     | 104  | 45   | 99 | 109   | 4  |
+
+</Route>
+
+### 二手市集 - 物品搜尋
+
+<Route author="TonyRL" example="/dcfever/trading/search/Sony" path="/dcfever/trading/search/:keyword/:mainCat?" :paramsDesc="['關鍵字', '主要分類 ID，見上表']" radar="1" />
+
 ## DeepL
 
 ### Blog
@@ -1056,6 +1094,12 @@ IPFS 网关有可能失效，那时候换成其他网关。
 | 天然災害 | 168 |
 
 </Route>
+
+## Phoronix
+
+### 新闻与评测
+
+<Route author="oppliate" example="/phoronix/news_topic/Intel" path="/phoronix/:page/:queryOrItem?" :paramsDesc="['页面', '对 `category` 页面是分类项目 `item`，对其它页面是主题 `q`，可以在网站顶部导航栏各项目链接里找出。如 `https://www.phoronix.com/scan.php?page=category&item=Computers` 对应 `/phoronix/category/Computers`']" radar="1"/>
 
 ## PMCAFF
 
@@ -2815,51 +2859,51 @@ column 为 third 时可选的 category:
 
     -   人工智能
 
-                    | 学术       | 开发者      |
-                    | -------- | -------- |
-                    | academic | yanxishe |
+                        | 学术       | 开发者      |
+                        | -------- | -------- |
+                        | academic | yanxishe |
 
     -   数智化
 
-                    | 零售数智化     | 金融数智化      | 工业数智化      | 医疗数智化     | 城市数智化       |
-                    | --------- | ---------- | ---------- | --------- | ----------- |
-                    | redigital | findigital | mandigital | medigital | citydigital |
+                        | 零售数智化     | 金融数智化      | 工业数智化      | 医疗数智化     | 城市数智化       |
+                        | --------- | ---------- | ---------- | --------- | ----------- |
+                        | redigital | findigital | mandigital | medigital | citydigital |
 
     -   金融科技
 
-                    | 科技巨头    | 银行 AI | 金融云          | 风控与安全        |
-                    | ------- | ----- | ------------ | ------------ |
-                    | BigTech | bank  | FinanceCloud | DataSecurity |
+                        | 科技巨头    | 银行 AI | 金融云          | 风控与安全        |
+                        | ------- | ----- | ------------ | ------------ |
+                        | BigTech | bank  | FinanceCloud | DataSecurity |
 
     -   医疗科技
 
-                    | 医疗 AI    | 投融资   | 医疗器械  | 互联网医疗            | 生物医药         | 健康险          |
-                    | -------- | ----- | ----- | ---------------- | ------------ | ------------ |
-                    | healthai | touzi | qixie | hulianwangyiliao | shengwuyiyao | jiankangxian |
+                        | 医疗 AI    | 投融资   | 医疗器械  | 互联网医疗            | 生物医药         | 健康险          |
+                        | -------- | ----- | ----- | ---------------- | ------------ | ------------ |
+                        | healthai | touzi | qixie | hulianwangyiliao | shengwuyiyao | jiankangxian |
 
     -   芯片
 
-                    | 材料设备      | 芯片设计       | 晶圆代工          | 封装测试      |
-                    | --------- | ---------- | ------------- | --------- |
-                    | materials | chipdesign | manufacturing | packaging |
+                        | 材料设备      | 芯片设计       | 晶圆代工          | 封装测试      |
+                        | --------- | ---------- | ------------- | --------- |
+                        | materials | chipdesign | manufacturing | packaging |
 
     -   智慧城市
 
-                    | 智慧安防          | 智慧教育           | 智慧交通                | 智慧社区           | 智慧零售           | 智慧政务            | 智慧地产     |
-                    | ------------- | -------------- | ------------------- | -------------- | -------------- | --------------- | -------- |
-                    | smartsecurity | smarteducation | smarttransportation | smartcommunity | smartretailing | smartgovernment | proptech |
+                        | 智慧安防          | 智慧教育           | 智慧交通                | 智慧社区           | 智慧零售           | 智慧政务            | 智慧地产     |
+                        | ------------- | -------------- | ------------------- | -------------- | -------------- | --------------- | -------- |
+                        | smartsecurity | smarteducation | smarttransportation | smartcommunity | smartretailing | smartgovernment | proptech |
 
     -   工业互联网
 
-                    | 工业软件       | 工业安全     | 5G 工业互联网 | 工业转型实践    |
-                    | ---------- | -------- | -------- | --------- |
-                    | gysoftware | gysafety | 5ggy     | gypratice |
+                        | 工业软件       | 工业安全     | 5G 工业互联网 | 工业转型实践    |
+                        | ---------- | -------- | -------- | --------- |
+                        | gysoftware | gysafety | 5ggy     | gypratice |
 
     -   AIoT
 
-                    | 物联网 | 智能硬件 | 机器人   | 智能家居      |
-                    | --- | ---- | ----- | --------- |
-                    | 5G  | arvr | robot | smarthome |
+                        | 物联网 | 智能硬件 | 机器人   | 智能家居      |
+                        | --- | ---- | ----- | --------- |
+                        | 5G  | arvr | robot | smarthome |
 
 </Route>
 
@@ -3513,7 +3557,11 @@ column 为 third 时可选的 category:
 
 ### 作者动态
 
-<Route author="umm233" example="/sspai/activity/d0u947vr" path="/sspai/activity/:slug"  :paramsDesc="['作者 slug，可在作者主页URL中找到']" radar="1"/>
+<Route author="umm233" example="/sspai/activity/urfp0d9i" path="/sspai/activity/:slug"  :paramsDesc="['作者 slug，可在作者主页URL中找到']" radar="1"/>
+
+### 用户收藏
+
+<Route author="curly210102" example="/sspai/bookmarks/urfp0d9i" path="/sspai/bookmarks/:slug"  :paramsDesc="['用户 slug，可在个人主页URL中找到']" radar="1"/>
 
 ### 专题
 
@@ -3788,7 +3836,7 @@ column 为 third 时可选的 category:
 
 ### 栏目
 
-<Route author="nczitzk" example="/netease/exclusive/qsyk" path="/netease/exclusive/:id?" :paramsDesc="['栏目, 默认为首页']">
+<Route author="nczitzk" example="/163/exclusive/qsyk" path="/163/exclusive/:id?" :paramsDesc="['栏目, 默认为首页']">
 
 | 分类   | 编号   |
 | ---- | ---- |
@@ -3815,7 +3863,7 @@ column 为 third 时可选的 category:
 
 ### 更新
 
-<Route author="HendricksZheng" example="/netease/dy/W4983108759592548559" path="/netease/dy/:id" :paramsDesc="['网易号 ID', '见如下说明']">
+<Route author="HendricksZheng" example="/163/dy/W4983108759592548559" path="/163/dy/:id" :paramsDesc="['网易号 ID', '见如下说明']">
 
 1.  在[网易号搜索页面](https://dy.163.com/v2/media/tosearch.html) 搜索想要订阅的网易号。
 2.  打开网易号的任意文章。
@@ -3823,9 +3871,9 @@ column 为 third 时可选的 category:
 
 </Route>
 
-## 网易号（通用）
+### 网易号（通用）
 
-<Route author="mjysci" example="/netease/dy2/T1555591616739" path="/netease/dy2/:id" :paramsDesc="['id，该网易号主页网址最后一项html的文件名']" anticrawler="1"/>
+<Route author="mjysci" example="/163/dy2/T1555591616739" path="/163/dy2/:id" :paramsDesc="['id，该网易号主页网址最后一项html的文件名']" anticrawler="1"/>
 
 优先使用方法一，若是网易号搜索页面搜不到的小众网易号（文章页面不含`data-wemediaid`）则可使用此法。
 触发反爬会只抓取到标题，建议自建。
@@ -3840,7 +3888,7 @@ column 为 third 时可选的 category:
 
 ### 今日关注
 
-<Route author="nczitzk" example="/netease/today" path="/netease/today/:need_content?" :paramsDesc="['需要获取全文，填写 true/yes 表示需要，默认需要']">
+<Route author="nczitzk" example="/163/today" path="/163/today/:need_content?" :paramsDesc="['需要获取全文，填写 true/yes 表示需要，默认需要']">
 
 ::: tip 提示
 
@@ -3852,7 +3900,7 @@ column 为 third 时可选的 category:
 
 ### 排行榜
 
-<Route author="nczitzk" example="/netease/news/rank/whole/click/day" path="/netease/news/rank/:category?/:type?/:time?" :paramsDesc="['新闻分类，参见下表，默认为“全站”','排行榜类型，“点击榜”对应`click`，“跟贴榜”对应`follow`，默认为“点击榜”','统计时间，“1小时”对应`hour`，“24小时”对应`day`，“本周”对应`week`，“本月”对应`month`，默认为“24小时”']">
+<Route author="nczitzk" example="/163/news/rank/whole/click/day" path="/163/news/rank/:category?/:type?/:time?" :paramsDesc="['新闻分类，参见下表，默认为“全站”','排行榜类型，“点击榜”对应`click`，“跟贴榜”对应`follow`，默认为“点击榜”','统计时间，“1小时”对应`hour`，“24小时”对应`day`，“本周”对应`week`，“本月”对应`month`，默认为“24小时”']">
 
 ::: tip 提示
 
@@ -3874,7 +3922,7 @@ column 为 third 时可选的 category:
 
 ### 专栏
 
-<Route author="Solist-X" example="/netease/news/special/1" path="/netease/news/special/:type?" :paramsDesc="['栏目']">
+<Route author="Solist-X" example="/163/news/special/1" path="/163/news/special/:type?" :paramsDesc="['栏目']">
 
 | 轻松一刻 | 槽值 | 人间 | 大国小民 | 三三有梗 | 数读 | 看客 | 下划线 | 谈心社 | 哒哒 | 胖编怪聊 | 曲一刀 | 今日之声 | 浪潮 | 沸点 |
 | ---- | -- | -- | ---- | ---- | -- | -- | --- | --- | -- | ---- | --- | ---- | -- | -- |
@@ -3884,7 +3932,7 @@ column 为 third 时可选的 category:
 
 ### 人间
 
-<Route author="nczitzk" example="/netease/renjian/texie" path="/netease/renjian/:category?" :paramsDesc="['分类，见下表，默认为特写']">
+<Route author="nczitzk" example="/163/renjian/texie" path="/163/renjian/:category?" :paramsDesc="['分类，见下表，默认为特写']">
 
 | 特写    | 记事    | 大写    | 好读    | 看客    |
 | ----- | ----- | ----- | ----- | ----- |
@@ -3940,11 +3988,15 @@ column 为 third 时可选的 category:
 
 ### 公众号（feeddd 来源）
 
-<Route author="TonyRL Rongronggg9" example="/wechat/feeddd/6131e1441269c358aa0e2141" path="/wechat/feeddd/:id" :paramsDesc="['公众号 id, 打开 `https://feeddd.org/feeds` 或 `https://cdn.jsdelivr.net/gh/feeddd/feeds/feeds_all_rss.txt`, 在 URL 中找到 id; 注意不是公众号页的 id, 而是订阅的 id']"/>
+<Route author="TonyRL Rongronggg9" example="/wechat/feeddd/6131e1441269c358aa0e2141" path="/wechat/feeddd/:id" :paramsDesc="['公众号 id，打开 `https://feeddd.org/feeds` 或 `https://cdn.jsdelivr.net/gh/feeddd/feeds/feeds_all_rss.txt`，在 URL 中找到 id；注意不是公众号页的 id，而是订阅的 id']"/>
 
 ### 公众号（自由微信来源）
 
 见 [#自由微信](#zi-you-wei-xin)
+
+### 公众号（Wechat2RSS 来源）
+
+<Route author="TonyRL" example="/wechat/wechat2rss/5b925323244e9737c39285596c53e3a2f4a30774" path="/wechat/wechat2rss/:id" :paramsDesc="['公众号 id，打开 `https://wechat2rss.xlab.app/posts/list/`，在 URL 中找到 id；注意不是公众号页的 id，而是订阅的 id']" radar="1"/>
 
 ### 公众号栏目 (非推送 & 历史消息)
 
@@ -4454,18 +4506,6 @@ wechat-feeds 来源[已停止更新](https://github.com/hellodword/wechat-feeds/
 | 学会要闻        | 学会动态     | 科技新闻     |
 | ----------- | -------- | -------- |
 | Information | Dynamics | TechNews |
-
-</Route>
-
-## 中国计算机学会
-
-### 新闻
-
-<Route author="nczitzk" example="/ccf/news" path="/ccf/news/:category?" :paramsDesc="['分类，见下表，默认为 CCF 新闻']">
-
-| CCF 新闻     | CCF 聚焦 | ACM 信息   |
-| ---------- | ------ | -------- |
-| Media_list | Focus  | ACM_News |
 
 </Route>
 
