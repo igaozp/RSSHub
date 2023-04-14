@@ -102,7 +102,7 @@ Execute the following command to pull RSSHub's docker image.
 $ docker pull diygod/rsshub
 ```
 
-Start a RSSHub container
+Start an RSSHub container
 
 ```bash
 $ docker run -d --name rsshub -p 1200:1200 diygod/rsshub
@@ -283,6 +283,12 @@ in pkgs.stdenv.mkDerivation {
     buildInputs = [node pkgs.yarn pkgs.pythonPackages.jieba];
 }
 ```
+
+## Deploy to Railway
+
+Automatic updates are included.
+
+[![Deploy on Railway](https://railway.app/button.svg)](https://railway.app/template/QxW__f?referralCode=9wT3hc)
 
 ## Deploy to Heroku
 
@@ -642,6 +648,10 @@ See docs of the specified route and `lib/config.js` for detailed information.
     -   `BITBUCKET_USERNAME`: Your Bitbucket username
     -   `BITBUCKET_PASSWORD`: Your Bitbucket app password
 
+-   Discord
+
+    -   `DISCORD_AUTHORIZATION`: Discord authorization token, can be found in the header of XHR requests after logging in Discord web client
+
 -   Discuz cookie
 
     -   `DISCUZ_COOKIE_{cid}`: Cookie of a forum powered by Discuz, cid can be anything from 00 to 99. When visiting a Discuz route, use cid to specify this cookie.
@@ -773,3 +783,6 @@ See docs of the specified route and `lib/config.js` for detailed information.
 -   ZodGame:
 
     -   `ZODGAME_COOKIE`: Cookie of ZodGame User
+
+-   Civitai
+    -   `CIVITAI_COOKIE`: Cookie of Civitai
