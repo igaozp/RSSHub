@@ -367,6 +367,12 @@
     "/anquanke/:category/:fulltext?": [
         "qwertyuiop6"
     ],
+    "/apache/apisix/blog": [
+        "aneasystone"
+    ],
+    "/apiseven/blog": [
+        "aneasystone"
+    ],
     "/apkpure/versions/:pkg/:region?": [
         "maple3142"
     ],
@@ -405,6 +411,9 @@
         "HenryQW"
     ],
     "/arcteryx/new-arrivals/:country/:gender": [
+        "NavePnow"
+    ],
+    "/arcteryx/outlet/:country/:gender": [
         "NavePnow"
     ],
     "/arcteryx/regear/new-arrivals": [
@@ -1003,6 +1012,9 @@
     "/clickme/:site/:grouping/:name": [
         "hoilc"
     ],
+    "/cloudnative/blog": [
+        "aneasystone"
+    ],
     "/cls/depth/:category?": [
         "nczitzk"
     ],
@@ -1534,6 +1546,9 @@
     "/eastmoney/ttjj/user/:uid": [
         "zidekuls"
     ],
+    "/eastmoney/search/:keyword": [
+        "drgnchan"
+    ],
     "/ecnu/acm/contest/:category?": [
         "a180285"
     ],
@@ -1855,7 +1870,7 @@
     "/github/topics/:name/:qs?": [
         "queensferryme"
     ],
-    "/github/trending/:since/:language?/:spoken_language?": [
+    "/github/trending/:since/:language/:spoken_language?": [
         "DIYgod",
         "jameschensmith"
     ],
@@ -2990,6 +3005,9 @@
     "/kuaidi100/track/:number/:id/:phone?": [
         "NeverBehave"
     ],
+    "/kunchengblog/essay": [
+        "nczitzk"
+    ],
     "/kuwaitlocal/": [
         "TonyRL"
     ],
@@ -3458,6 +3476,9 @@
     "/nippon/:category?": [
         "laampui"
     ],
+    "/njglyy/ygbjypx": [
+        "real-jiakai"
+    ],
     "/njit/tzgg": [
         "zefengdaguo"
     ],
@@ -3508,6 +3529,9 @@
     ],
     "/nju/zcc": [
         "ret-1"
+    ],
+    "/njucm/grabszs": [
+        "real-jiakai"
     ],
     "/njupt/jwc/:type?": [
         "shaoye"
@@ -4722,6 +4746,21 @@
     ],
     "/theinitium/tags/:type/:language?": [
         "AgFlore"
+    ],
+    "/themoviedb/collection/:id/:lang?": [
+        "x2cf"
+    ],
+    "/themoviedb/trending/:mediaType/:timeWindow/:lang?": [
+        "x2cf"
+    ],
+    "/themoviedb/tv/:id/seasons/:lang?": [
+        "x2cf"
+    ],
+    "/themoviedb/tv/:id/seasons/:seasonNumber/episodes/:lang?": [
+        "x2cf"
+    ],
+    "/themoviedb/:mediaType/:sheet/:lang?": [
+        "x2cf"
     ],
     "/thenewslens/author/:id/:sort?": [
         "nczitzk"
