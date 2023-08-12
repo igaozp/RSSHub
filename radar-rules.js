@@ -27,21 +27,6 @@
             { title: '仓库 Contributors', docs: 'https://docs.rsshub.app/programming.html#github', source: ['/:user/:repo/graphs/contributors', '/:user/:repo'], target: '/github/contributors/:user/:repo' },
         ],
     },
-    'ximalaya.com': {
-        _name: '喜马拉雅',
-        '.': [
-            {
-                title: '专辑',
-                docs: 'https://docs.rsshub.app/multimedia.html#xi-ma-la-ya',
-                source: '/:type/:id',
-                target: (params) => {
-                    if (parseInt(params.id) + '' === params.id) {
-                        return '/ximalaya/:type/:id/';
-                    }
-                },
-            },
-        ],
-    },
     'algocasts.io': { _name: 'AlgoCasts', '.': [{ title: '视频更新', docs: 'https://docs.rsshub.app/programming.html#algocasts', source: '/episodes', target: '/algocasts' }] },
     'soulapp.cn': { _name: 'Soul', '.': [{ title: '瞬间更新', docs: 'https://docs.rsshub.app/social-media.html#soul' }] },
     'anime1.me': {
@@ -282,82 +267,6 @@
                         ikey = document.querySelector('div.card > a').getAttribute('href').replace('/actress/', '');
                     }
                     return `/onejav/${itype}/${ikey}`;
-                },
-            },
-        ],
-    },
-    '141jav.com': {
-        _name: '141JAV BT',
-        '.': [
-            {
-                title: '今日种子',
-                docs: 'https://docs.rsshub.app/multimedia.html#141jav',
-                source: '/',
-                target: (params, url, document) => {
-                    const today = document.querySelector('div.card.mb-1.card-overview').getAttribute('data-date').replace(/-/g, '');
-                    return `/141jav/day/${today}`;
-                },
-            },
-            {
-                title: '今日演员',
-                docs: 'https://docs.rsshub.app/multimedia.html#141jav',
-                source: '/',
-                target: (params, url, document) => {
-                    const star = document.querySelector('div.card-content > div > a').getAttribute('href');
-                    return `/141jav${star}`;
-                },
-            },
-            {
-                title: '页面种子',
-                docs: 'https://docs.rsshub.app/multimedia.html#141jav',
-                source: ['/:type', '/:type/:key', '/:type/:key/:morekey'],
-                target: (params, url, document) => {
-                    const itype = params.morekey === undefined ? params.type : params.type === 'tag' ? 'tag' : 'day';
-                    let ikey = `${itype === 'day' ? params.type : ''}${params.key || ''}${itype === 'tag' && params.morekey !== undefined ? '%2F' : ''}${params.morekey || ''}`;
-                    if (ikey === '' && itype === 'tag') {
-                        ikey = document.querySelector('div.thumbnail.is-inline > a').getAttribute('href').replace('/tag/', '').replace('/', '%2F');
-                    } else if (ikey === '' && itype === 'actress') {
-                        ikey = document.querySelector('div.card > a').getAttribute('href').replace('/actress/', '');
-                    }
-                    return `/141jav/${itype}/${ikey}`;
-                },
-            },
-        ],
-    },
-    '141ppv.com': {
-        _name: '141ppv BT',
-        '.': [
-            {
-                title: '今日种子',
-                docs: 'https://docs.rsshub.app/multimedia.html#141pvp',
-                source: '/',
-                target: (params, url, document) => {
-                    const today = document.querySelector('div.card.mb-1.card-overview').getAttribute('data-date').replace(/-/g, '');
-                    return `/141ppv/day/${today}`;
-                },
-            },
-            {
-                title: '今日演员',
-                docs: 'https://docs.rsshub.app/multimedia.html#141ppv',
-                source: '/',
-                target: (params, url, document) => {
-                    const star = document.querySelector('div.card-content > div > a').getAttribute('href');
-                    return `/141ppv${star}`;
-                },
-            },
-            {
-                title: '页面种子',
-                docs: 'https://docs.rsshub.app/multimedia.html#141ppv',
-                source: ['/:type', '/:type/:key', '/:type/:key/:morekey'],
-                target: (params, url, document) => {
-                    const itype = params.morekey === undefined ? params.type : params.type === 'tag' ? 'tag' : 'day';
-                    let ikey = `${itype === 'day' ? params.type : ''}${params.key || ''}${itype === 'tag' && params.morekey !== undefined ? '%2F' : ''}${params.morekey || ''}`;
-                    if (ikey === '' && itype === 'tag') {
-                        ikey = document.querySelector('div.thumbnail.is-inline > a').getAttribute('href').replace('/tag/', '').replace('/', '%2F');
-                    } else if (ikey === '' && itype === 'actress') {
-                        ikey = document.querySelector('div.card > a').getAttribute('href').replace('/actress/', '');
-                    }
-                    return `/141ppv/${itype}/${ikey}`;
                 },
             },
         ],
