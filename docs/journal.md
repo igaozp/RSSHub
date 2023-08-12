@@ -505,11 +505,17 @@ You can get all short name of a journal from <https://www.nature.com/siteindex> 
 
 </Route>
 
+## 环球法律评论
+
+### 期刊
+
+<Route author="nczitzk" example="/globallawreview" path="/globallawreview"/>
+
 ## 中国知网
 
 ### 期刊
 
-<Route author="Fatpandac" example="/cnki/journals/LKGP" path="/cnki/journals/:name" :paramsDesc="['期刊缩写，可以在网址中得到']"/>
+<Route author="Fatpandac Derekmini" example="/cnki/journals/LKGP" path="/cnki/journals/:name" :paramsDesc="['期刊缩写，可以在网址中得到']"/>
 
 ### 网络首发
 
