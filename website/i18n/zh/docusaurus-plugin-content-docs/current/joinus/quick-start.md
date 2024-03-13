@@ -8,7 +8,7 @@ sidebar_position: 1
 
 ## 参与讨论
 
-[![Telegram 群组](https://img.shields.io/badge/chat-telegram-brightgreen.svg?logo=telegram&style=for-the-badge)](https://t.me/rsshub) [![GitHub Issues](https://img.shields.io/github/issues/DIYgod/RSSHub?color=bright-green&logo=github&style=for-the-badge)](https://github.com/DIYgod/RSSHub/issues) [![GitHub 讨论](https://img.shields.io/github/discussions/DIYgod/RSSHub?logo=github&style=for-the-badge)](https://github.com/DIYgod/RSSHub/discussions)
+[![Telegram 群组](https://img.shields.io/badge/chat-telegram-brightgreen.svg?logo=telegram&style=for-the-badge)](https://t.me/rsshub) [![GitHub Issues](https://img.shields.io/github/issues/DIYgod/RSSHub?color=bright-green&logo=github&style=for-the-badge)](https://github.com/DIYgod/RSSHub/issues)
 
 ## 开始之前
 
@@ -20,7 +20,7 @@ sidebar_position: 1
 -   [W3Schools](https://www.w3schools.com)
 -   [Codecademy 上的 Git 课程](https://www.codecademy.com/learn/learn-git)
 
-如果您想查看其他开发人员如何使用这些技术来制作 RSS 订阅的示例，您可以查看 [我们的代码库](https://github.com/DIYgod/RSSHub/tree/master/lib/v2) 中的一些代码。
+如果您想查看其他开发人员如何使用这些技术来制作 RSS 订阅的示例，您可以查看 [我们的代码库](https://github.com/DIYgod/RSSHub/tree/master/lib/routes) 中的一些代码。
 
 ## 提交新的 RSSHub 规则
 

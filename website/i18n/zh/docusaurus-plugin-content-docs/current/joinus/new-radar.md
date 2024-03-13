@@ -4,14 +4,20 @@ sidebar_position: 3
 
 # 提交新的 RSSHub Radar 规则
 
+:::warning
+
+以下文档为旧版标准，新版标准请使用参考 [/lib/types.ts#L84](https://github.com/DIYgod/RSSHub/blob/master/lib/types.ts#L84)
+
+:::
+
 如果需要查看新规则的结果，建议您安装浏览器扩展程序。您可以在 [参与我们](/zh/joinus/quick-start#提交新的-rsshub-radar-规则) 页面下载适合您浏览器的扩展程序。
 
 ## 编写规则
 
-要制作新的 RSSHub Radar 规则，需要在 `/lib/v2/` 目录下，相应的域名空间创建 `radar.js` 文件。下面以制作 `GitHub 仓库 Issues` 的 RSS 源为例，详见此处。编写的代码应如下所示：
+要制作新的 RSSHub Radar 规则，需要在 `/lib/routes/` 目录下，相应的域名空间创建 `radar.ts` 文件。下面以制作 `GitHub 仓库 Issues` 的 RSS 源为例，详见此处。编写的代码应如下所示：
 
 ```js
-module.exports = {
+export default {
     'github.com': {
         _name: 'GitHub',
         '.': [
@@ -44,7 +50,7 @@ module.exports = {
 <TabItem value="github.com" label="github.com 和 www.github.com">
 
 ```js
-module.exports = {
+export default {
     'github.com': {
         _name: 'GitHub',
         // highlight-next-line
@@ -64,7 +70,7 @@ module.exports = {
 <TabItem value="abc.github.com" label="abc.github.com">
 
 ```js
-module.exports = {
+export default {
     'github.com': {
         _name: 'GitHub',
         // highlight-next-line
@@ -84,7 +90,7 @@ module.exports = {
 <TabItem value="abc.def.github.com" label="abc.def.github.com">
 
 ```js
-module.exports = {
+export default {
     'github.com': {
         _name: 'GitHub',
         // highlight-next-line
@@ -145,7 +151,7 @@ source 应为一个字符串数组。例如，如果 `GitHub 仓库 Issues` 的 
 <TabItem value="params" label="使用 params 匹配">
 
 ```js
-module.exports = {
+export default {
     'github.com': {
         _name: 'GitHub',
         '.': [
@@ -165,7 +171,7 @@ module.exports = {
 <TabItem value="url" label="使用 URL 匹配">
 
 ```js
-module.exports = {
+export default {
     'github.com': {
         _name: 'GitHub',
         '.': [
@@ -192,10 +198,6 @@ module.exports = {
 
 -   使用 `'.'` 子域名可以使 RSSBud 支持常见的移动端子域名，例如 `m`/`mobile`。
 -   在 `target` 中使用 `document` 的规则并不适用于 RSSBud：RSSBud 不是浏览器扩展程序，它只能获取和分析网站的 URL，不能运行 JavaScript。
-
-### 补充文档
-
-[如前所述](/zh/joinus/new-rss/add-docs#其他组件)，在 RSSHub 文档添加 radar="1" 将显示“支持 Radar”的徽章。
 
 ## 调试 Radar 规则
 

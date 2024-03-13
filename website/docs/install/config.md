@@ -40,7 +40,7 @@ RSSHub supports two caching methods: memory and redis
 
 Partial routes have a strict anti-crawler policy, and can be configured to use proxy.
 
-Proxy can be configured through **Proxy URI**, **Proxy options**, or **Reverse proxy**.
+Proxy can be configured through **Proxy URI**, **Proxy options**, **PAC script**, or **Reverse proxy**.
 
 ### Proxy URI
 
@@ -96,6 +96,20 @@ async function handleRequest(request) {
 }
 ```
 
+### PAC script
+
+:::warning
+
+This proxy method overwrites `PROXY_URI`, `PROXY_PROTOCOL`, `PROXY_HOST` and `PROXY_PORT`.
+
+:::
+
+About PAC script, please refer to [Proxy Auto-Configuration (PAC) file](https://developer.mozilla.org/docs/Web/HTTP/Proxy_servers_and_tunneling/Proxy_Auto-Configuration_PAC_file).
+
+`PAC_URI`: PAC script URL, supports http, https, ftp, file, data. See [pac-proxy-agent](https://www.npmjs.com/package/pac-proxy-agent) NPM package page.
+
+`PAC_SCRIPT`: Hard-coded JavaScript code string of PAC script. Overwrites `PAC_URI`.
+
 ### Proxy options
 
 `PROXY_PROTOCOL`: Using proxy, supports socks, http, https, etc. See [socks-proxy-agent](https://www.npmjs.com/package/socks-proxy-agent) NPM package page and [source](https://github.com/TooTallNate/proxy-agents/blob/63adbcefdb4783cc67c0eb90200886b4064e8639/packages/socks-proxy-agent/src/index.ts#L81) for what these protocols mean. See also [cURL OOTW: SOCKS5](https://daniel.haxx.se/blog/2020/05/26/curl-ootw-socks5/) for reference.
@@ -108,29 +122,13 @@ async function handleRequest(request) {
 
 `PROXY_URL_REGEX`: regex for url of enabling proxy, default to `.*`
 
-## User Authentication Configurations
-
-Routes in `protected_route.js` will be protected using HTTP Basic Authentication.
-
-When adding feeds using RSS readers with HTTP Basic Authentication support, authentication information is required, eg: `https://usernam3:passw0rd@rsshub.app/protected/rsshub/routes`.
-
-For readers that do not support HTTP Basic authentication, please refer to [Access Control Configuration](#access-control-configuration).
-
-`HTTP_BASIC_AUTH_NAME`: HTTP basic authentication username, default to `usernam3`, please change asap
-
-`HTTP_BASIC_AUTH_PASS`: HTTP basic authentication password, default to `passw0rd`, please change asap
-
 ## Access Control Configurations
 
-RSSHub supports access control via access key/code, allowlisting and denylisting, enabling any will activate access control for all routes. `ALLOW_LOCALHOST: true` will grant access to all localhost IP addresses.
+RSSHub supports access control using access keys/codes. Enabling it will activate global access control, and lack of access permission will result in denied access.
 
 ### Allowlisting/denylisting
 
--   `ALLOWLIST`: the allowlist. When set, values in `DENYLIST` are disregarded
-
--   `DENYLIST`: the denylist
-
-Allowlisting/denylisting support IP, route and UA as values, fuzzy matching. Use `,` as the delimiter to separate multiple values, eg: `ALLOWLIST=1.1.1.1,2.2.2.2,/qdaily/column/59`
+This configuration has been removed. It is recommended to use a proxy server such as Nginx or Cloudflare for access control.
 
 ### Access Key/Code
 
@@ -145,13 +143,6 @@ Access code is the md5 generated based on the access key + route, eg:
 -   Routes are accessible via `code`, eg: `https://rsshub.app/qdaily/column/59?code=0f820530128805ffc10351f22b5fd121`
 
 -   Or using `key` directly, eg: `https://rsshub.app/qdaily/column/59?key=ILoveRSSHub`
-
-See the relation between access key/code and allowlist/denylisting.
-
-|             | Allowlist | Denylist | Correct access key/code | Wrong access key/code | No access key/code |
-| ----------- | ----------- | ----------- | ----------------------- | --------------------- | ------------------ |
-| Allowlist | ✅          | ✅          | ✅                      | ✅                    | ✅                 |
-| Denylist | ✅          | ❌          | ✅                      | ❌                    | ❌                 |
 
 ## Logging Configurations
 
@@ -195,7 +186,7 @@ It is also valid to contain route parameters, e.g. `/weibo/user/2612249974`.
 
 ## Features
 
-:::tip Experimental features
+:::tip[Experimental features]
 
 Configs in this sections are in beta stage, and **are turn off by default**. Please read corresponded description and turn on if necessary.
 
@@ -243,7 +234,7 @@ Configs in this sections are in beta stage, and **are turn off by default**. Ple
 
 Configs here are incomplete.
 
-See docs of the specified route and `lib/config.js` for detailed information.
+See docs of the specified route and `lib/config.ts` for detailed information.
 
 :::
 
@@ -261,6 +252,11 @@ See docs of the specified route and `lib/config.js` for detailed information.
     2.  打开控制台，切换到 Network 面板，刷新
     3.  点击 dynamic_new 请求，找到 Cookie
     4.  视频和专栏，UP 主粉丝及关注只要求 `SESSDATA` 字段，动态需复制整段 Cookie
+-   `BILIBILI_DM_IMG_LIST`: 用于获取UP主投稿系列的路由，获取方式：
+    1.  打开 [任意UP主个人空间页](https://space.bilibili.com/1)
+    2.  打开控制台，切换到 Network 面板，关闭缓存，刷新，鼠标在窗口内不断移动
+    3.  使用过滤器找到符合 `https://api.bilibili.com/x/space/wbi/arc/search` 的请求
+    4.  复制请求参数中 `dm_img_list` 字段的内容，如 `[{"x":2721,"y":615,"z":0,"timestamp":29,"type":0}]`
 
 ### Bitbucket
 
@@ -381,11 +377,11 @@ Warning: Two Factor Authentication is **not** supported.
 
 For user timeline
 
-apply API here `https://mastodon.example/settings/applications`(repalce `mastodon.example`), please check scope `read:search`
+Apply API at `https://mastodon.example/settings/applications` (replace `mastodon.example`). Scopes `read:search` and `read:statuses` are needed.
 
 -   `MASTODON_API_HOST`: API instance domain, only domain, no `http://` or `https://` protocol header
 -   `MASTODON_API_ACCESS_TOKEN`: user access token
--   `MASTODON_API_ACCT_DOMAIN`: acct domain for particular instance, Webfinger account URI, like `user@host`
+-   `MASTODON_API_ACCT_DOMAIN`: acct domain for this instance, i.e. the `domain` in the WebFinger URI `username@domain`. It's usually the same as `MASTODON_API_HOST`.
 
 ### Medium
 
@@ -398,6 +394,12 @@ Open the console, copy the cookie (in theory, only uid and sid are required)
 
 -   `MINIFLUX_INSTANCE`: The instance used by the user, by default, is the official MiniFlux [paid service address](https://reader.miniflux.app)
 -   `MINIFLUX_TOKEN`: User's API key, please log in to the instance used and go to `Settings` -> `API Key` -> `Create a new API key` to obtain.
+
+### Netease Cloud Music Playlists
+
+For playlists and song rankings
+
+-   `NCM_COOKIES`: Cookies after logging into Netease Cloud Music, available via `document.cookie` in the browser console.
 
 ### nhentai torrent
 
@@ -459,24 +461,28 @@ For scientific journal routes
 
 For user data related routes
 
--   `SPOTIFY_REFRESHTOKEN`: The refresh token of the user from the Spotify application. Check [this gist](https://gist.github.com/outloudvi/d1bbeb5e989db5385384a223a7263744) for detailed information.
+-   `SPOTIFY_REFRESHTOKEN`: The refresh token of the user from the Spotify application. You can obtain it through [spotify-refresh-token](https://alecchen.dev/spotify-refresh-token/) by [alecchendev](https://github.com/alecchendev/spotify-refresh-token).
+
+:::tip
+
+Remember to check `user-top-read` and `user-library-read` in the scope for `Personal Top Items` and `Personal Saved Tracks` respectively.
+
+:::
 
 ### Telegram
 
 [Bot application](https://telegram.org/blog/bot-revolution)
 
--   `TELEGRAM_TOKEN`: Telegram bot token
+-   `TELEGRAM_TOKEN`: Telegram bot token for stickerpack feeds
+-   `TELEGRAM_SESSION`: for video and file streaming, can be acquired by running `node lib/routes/telegram/tglib/client.js`
 
 ### Twitter
 
-Given the recent changes in Twitter and its API access a new method for accessing Twitter anonymously was devised. This method involves using temporary guest accounts created when going through the onboarding process with the Android app.
+It is recommended to use a non-important account, new accounts or logins from different regions may be restricted.
 
-Please see the details in [Nitter - Guest Account Branch Deployment](https://github.com/zedeus/nitter/wiki/Guest-Account-Branch-Deployment) and [zedeus/nitter#983](https://github.com/zedeus/nitter/issues/983).
-
-In addition, we have prepared a Node.js script to help you use proxies to create these tokens in batches. [Please click here](https://github.com/DIYgod/RSSHub/tree/master/scripts/twitter-token/generate.js).
-
--   `TWITTER_OAUTH_TOKEN`: Support multiple keys, split them with `,`
--   `TWITTER_OAUTH_TOKEN_SECRET`: Support multiple keys, split them with `,`
+-   `TWITTER_USERNAME`: Twitter username
+-   `TWITTER_PASSWORD`: Twitter password
+-   `TWITTER_AUTHENTICATION_SECRET`: Optional, Twitter Two-factor authentication -> Authentication app -> Secret part in `otpauth://totp/Twitter:@_RSSHub?secret=xxxxxxxxxxxxxxxx&issuer=Twitter`
 
 ### Wordpress
 
@@ -554,6 +560,10 @@ Web 版认证 token 和 iOS 内购回执认证 token 只需选择其一填入即
 
 -   `HEFENG_KEY`:API key
 
+### 米游社
+
+-   `MIHOYO_COOKIE`：登录米游社后的 cookie，用于获取用户关注动态时间线。
+
 ### 南方周末
 
 用于付费全文
@@ -567,12 +577,6 @@ Web 版认证 token 和 iOS 内购回执认证 token 只需选择其一填入即
 ### 色花堂
 
 -   `SEHUATANG_COOKIE`: 登陆色花堂后的 cookie 值。
-
-### 网易云歌单
-
-用于歌单及听歌排行
-
--   `NCM_COOKIES`: 网易云音乐登陆后的 cookie 值。
 
 ### 微博
 
