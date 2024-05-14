@@ -1,8 +1,8 @@
 import type { Namespace } from '@/types';
 
 export const namespace: Namespace = {
-    name: '423Down',
-    url: '423down.com',
-    categories: ['program-update'],
+    name: '萃嶺网',
+    url: 'cuilingmag.com',
+    categories: ['new-media'],
     description: '',
 };
