@@ -232,6 +232,9 @@ export type Config = {
     qingting: {
         id?: string;
     };
+    readwise: {
+        accessToken?: string;
+    };
     saraba1st: {
         cookie?: string;
     };
@@ -257,6 +260,9 @@ export type Config = {
     };
     tophub: {
         cookie?: string;
+    };
+    tsdm39: {
+        cookie: string;
     };
     twitter: {
         username?: string[];
@@ -286,6 +292,7 @@ export type Config = {
     };
     xsijishe: {
         cookie?: string;
+        userAgent?: string;
     };
     xueqiu: {
         cookies?: string;
@@ -592,6 +599,9 @@ const calculateValue = () => {
         qingting: {
             id: envs.QINGTING_ID,
         },
+        readwise: {
+            accessToken: envs.READWISE_ACCESS_TOKEN,
+        },
         saraba1st: {
             cookie: envs.SARABA1ST_COOKIE,
         },
@@ -622,6 +632,9 @@ const calculateValue = () => {
         tophub: {
             cookie: envs.TOPHUB_COOKIE,
         },
+        tsdm39: {
+            cookie: envs.TSDM39_COOKIES,
+        },
         twitter: {
             username: envs.TWITTER_USERNAME?.split(','),
             password: envs.TWITTER_PASSWORD?.split(','),
@@ -650,6 +663,7 @@ const calculateValue = () => {
         },
         xsijishe: {
             cookie: envs.XSIJISHE_COOKIE,
+            user_agent: envs.XSIJISHE_USER_AGENT,
         },
         xueqiu: {
             cookies: envs.XUEQIU_COOKIES,
